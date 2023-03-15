@@ -1,0 +1,27 @@
+{
+  "name": "finale2",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000f\u0000i\u0000n\u0000a\u0000l\u0000e\u00002\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JBT13/finale2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JBT13/finale2/issues"
+  },
+  "homepage": "https://github.com/JBT13/finale2#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  }
+}
