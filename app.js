@@ -4,6 +4,7 @@ const session = require("express-session")
 require("colors")
 
 const frontPage = require("./routes/index")
+const gamePage = require("./routes/card")
 
 const app = express()
 
@@ -21,13 +22,14 @@ app.set("view engine", "ejs") // set up ejs the better version of index
 app.use(session({
     secret: 'secret',
     resave: true,
-    saveUnitinitialized:true,
-}))
+    saveUninitialized: true,
+  }));
 
 //the direction if a user writes /siggi it would send him to siggi
 //req=request, request is everything from the user 
 //res=response, response is what the web page responds to the user  
 app.use("/",frontPage);
+app.use("/card",gamePage);
 
 app.use((req, res, next ) => {
     const err = new Error("Page Not Found")
