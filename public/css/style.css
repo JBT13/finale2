@@ -5,16 +5,19 @@ body{
 }
 img{
     width: 400px;
-    height: 400px;
+    height: 300px;
     padding: 50px;
-    border: 5px double white;
-    margin: 0 33%;
+
     text-align: center;
 }
 div{
     width: 150px;
     padding: 100px;
     border: 5px double white;
-    margin: 0 40%;
+    margin: 0 38%;
     text-align: center;
+}
+h1{
+    color: azure;
+    
 }
