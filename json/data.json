@@ -1,3 +1,7 @@
 [
-    {"id":1,"username":"Jerry","email":"jbt@fb.is","password":"pupu"}
+    {"id":1,"username":"Jerry","password":"pupu"},
+    {"id":2,"username":"Messi","password":"7"},
+    {"id":3,"username":"Matti","password":"asd"},
+    {"id":3,"username":"Gabriel","password":"whiteman"},
+    {"id":3,"username":"Adam","password":"will"}
 ]
