@@ -8,6 +8,20 @@ router.get('/', (req, res) => {
 
 
 router.post('/', (req, res) => {
+    const sorts = ["hearts", "spades", "clubs", "diamonds"];
+    const number = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+    const deck = [];
+    for (let i = 0; i < sorts.length; i++) {
+        for (let j = 0; j < number.length; j++) {
+            deck.push(`${number[j]}of${sorts[i]}`);
+        }
+    }
+
+    const random = Math.floor(Math.random() * 52)
+    const card = deck.splice(random, 1)
+    
+    const numberOneTo52 = Math.floor(Math.random() * 52) + 1;
+
     const file = fs.readFileSync('./json/data.json');
     const data = JSON.parse(file);
     let login = false;
@@ -21,7 +35,7 @@ router.post('/', (req, res) => {
         }
     }
     if (login) {
-        res.render('card', { title: 'Home' });
+        res.render('card', { title: 'Home', numberOneTo52, card});
     } else {
         res.redirect('/');
     }
