@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const sorts = ["hearts", "spades", "clubs", "diamonds"];
-    const number = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+    const number = ["ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king"];
     const deck = [];
     for (let i = 0; i < sorts.length; i++) {
         for (let j = 0; j < number.length; j++) {
@@ -17,10 +17,20 @@ router.post('/', (req, res) => {
         }
     }
 
-    const random = Math.floor(Math.random() * 52)
-    const card = deck.splice(random, 1)
+    if(!req.session.deck){
+        req.session.deck = deck;
+    };
     
-    const numberOneTo52 = Math.floor(Math.random() * 52) + 1;
+    const random = Math.floor(Math.random() * 52)
+    const card = []
+
+    for (let i = 0; i < 4; i++) {
+        const random = Math.floor(Math.random() * 52)
+        card.push(req.session.deck.splice(random, 1))
+    }
+
+
+
 
     const file = fs.readFileSync('./json/data.json');
     const data = JSON.parse(file);
@@ -35,7 +45,7 @@ router.post('/', (req, res) => {
         }
     }
     if (login) {
-        res.render('card', { title: 'Home', numberOneTo52, card});
+        res.render('card', { title: 'Home', card, tempDeck: req.session.deck});
     } else {
         res.redirect('/');
     }
