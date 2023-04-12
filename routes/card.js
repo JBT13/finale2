@@ -49,6 +49,19 @@ router.post('/', (req, res) => {
     } else {
         res.redirect('/');
     }
+
+    router.get("/", (req, res) => {
+        template = req.query.id;
+        const file = fs.readFileSync("./json/data.json");
+        const data = JSON.parse(file);
+        for (let i = 0; i < data.length; i++) {
+          if (data[i].id == template) {
+            w = data[i];
+          }
+        }
+        const name = w.name;
+        res.render("template", { w });
+      });
 });
 
 
